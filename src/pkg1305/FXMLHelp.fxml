@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="221.0" prefWidth="561.0" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="pkg1305.FXMLHelpController">
+   <children>
+      <Label fx:id="lblTitle" layoutX="14.0" layoutY="14.0" text="Help &amp; About">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Text fx:id="txtAbout" fill="LIGHTGRAY" layoutX="17.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This little application converts an amount from one currency like USD into EUR for example. All you have to do is enter an amount, choose its currency and the one you want to convert it into. After that you can press the convert button and your new amount gets displayed in the textfield at the bottom. Author: Gergely Szijarto 2021" wrappingWidth="527.6708984375" />
+      <Button fx:id="btnReturn" layoutX="14.0" layoutY="164.0" mnemonicParsing="false" onAction="#returnToConverter" text="return to converter" />
+   </children>
+</AnchorPane>
