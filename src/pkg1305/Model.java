@@ -1,6 +1,7 @@
 package pkg1305;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,13 +25,13 @@ public class Model {
     }
 
     // method that converts the users amount into differect currencies
-    public String convert(String amount, Currency firstCurrency, Currency secondCurrency) {
-        double toConvert = 0;
+    public String convert(String amount, Currency firstCurrency, Currency secondCurrency) throws IOException {
+        BigDecimal toConvert = new BigDecimal(0);
         String result;
 
         try {
             // checking if entry is a number
-            toConvert = Double.parseDouble(amount);
+            toConvert = new BigDecimal(amount);
 
             if (firstCurrency == secondCurrency) {
                 return amount;
@@ -39,40 +40,11 @@ public class Model {
         } catch (NumberFormatException e) {
             // return an error message if the entry is not a number
             noNumber();
-
         }
 
-        switch (firstCurrency) {
-            case CHF:
-                switch (secondCurrency) {
-                    case USD:
-                        result = String.valueOf(toConvert * 1.0734);
-                        return result;
-                    case EUR:
-                        result = String.valueOf(toConvert * 0.9018);
-                        return result;
-                }
-            case EUR:
-                switch (secondCurrency) {
-                    case USD:
-                        result = String.valueOf(toConvert * 1.1846);
-                        return result;
-                    case CHF:
-                        result = String.valueOf(toConvert * 1.0990);
-                        return result;
-                }
-            case USD:
-                switch (secondCurrency) {
-                    case EUR:
-                        result = String.valueOf(toConvert * 0.8361);
-                        return result;
-                    case CHF:
-                        result = String.valueOf(toConvert * 0.9220);
-                        return result;
-                }
+        ExchangeRate er = new ExchangeRate(firstCurrency.toString(), secondCurrency.toString());
 
-        }
-        return null;
+        return er.convert(toConvert).toString();
     }
 
     public void noNumber() {
