@@ -11,6 +11,13 @@ package pkg1305;
  */
 public enum Currency {
     USD,
+    CAD,
+    AUD,
+    GBP,
+    SEK,
     EUR,
-    CHF
+    CHF,
+    HUF,
+    JPY
+    
 }

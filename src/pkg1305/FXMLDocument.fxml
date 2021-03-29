@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="271.0" prefWidth="559.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg1305.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="583.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg1305.FXMLDocumentController">
    <children>
       <MenuBar layoutX="14.0" layoutY="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -27,27 +27,27 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="40.0" layoutY="58.0" text="Convert" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="58.0">
+      <Label layoutX="40.0" layoutY="63.0" text="Convert" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="63.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="370.0" layoutY="58.0" text="into" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="58.0">
+      <Label layoutX="392.0" layoutY="63.0" prefHeight="36.0" prefWidth="47.0" text="into" AnchorPane.leftAnchor="392.0" AnchorPane.rightAnchor="143.0" AnchorPane.topAnchor="63.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="btnConvert" layoutX="41.0" layoutY="113.0" mnemonicParsing="false" onAction="#convert" prefHeight="43.0" prefWidth="480.0" text="Convert!" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+      <Button fx:id="btnConvert" layoutX="40.0" layoutY="134.0" mnemonicParsing="false" onAction="#convert" prefHeight="52.0" prefWidth="502.0" text="Convert!" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <TextField fx:id="tFResult" alignment="CENTER_RIGHT" editable="false" layoutX="40.0" layoutY="181.0" prefHeight="64.0" prefWidth="449.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+      <TextField fx:id="tFResult" alignment="CENTER_RIGHT" editable="false" layoutX="40.0" layoutY="251.0" prefHeight="86.0" prefWidth="503.0" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <font>
-            <Font size="25.0" />
+            <Font size="35.0" />
          </font>
       </TextField>
-      <ComboBox fx:id="cBConvertFrom" layoutX="258.0" layoutY="59.0" prefWidth="100.0" AnchorPane.topAnchor="60.0" />
-      <ComboBox fx:id="cBConvertTo" layoutX="429.0" layoutY="59.0" prefWidth="100.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="60.0" />
-      <TextField fx:id="tFAmount" alignment="CENTER_RIGHT" layoutX="136.0" layoutY="60.0" prefHeight="31.0" prefWidth="113.0" promptText="example: 100" AnchorPane.topAnchor="60.0" />
+      <ComboBox fx:id="cBConvertFrom" layoutX="292.0" layoutY="66.0" prefWidth="87.0" AnchorPane.topAnchor="66.0" />
+      <ComboBox fx:id="cBConvertTo" layoutX="442.0" layoutY="65.0" prefHeight="33.0" prefWidth="87.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="65.0" />
+      <TextField fx:id="tFAmount" alignment="CENTER_RIGHT" layoutX="136.0" layoutY="68.0" prefHeight="31.0" prefWidth="140.0" promptText="example: 100" AnchorPane.topAnchor="68.0" />
    </children>
 </AnchorPane>

@@ -46,14 +46,33 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // add item to combobox
-        cBConvertFrom.getItems().addAll(Currency.CHF, Currency.EUR, Currency.USD);
-        cBConvertTo.getItems().addAll(Currency.CHF, Currency.EUR, Currency.USD);
+        // add item to comboboxes
+        cBConvertFrom.getItems().addAll(
+                Currency.USD,
+                Currency.CAD,
+                Currency.AUD,
+                Currency.GBP,
+                Currency.SEK,
+                Currency.EUR,
+                Currency.CHF,
+                Currency.HUF,
+                Currency.JPY);
+
+        cBConvertTo.getItems().addAll(
+                Currency.USD,
+                Currency.CAD,
+                Currency.AUD,
+                Currency.GBP,
+                Currency.SEK,
+                Currency.EUR,
+                Currency.CHF,
+                Currency.HUF,
+                Currency.JPY);
 
     }
 
     @FXML
-    private void convert(ActionEvent event) {
+    private void convert(ActionEvent event) throws IOException {
         // check if the form is filled out completely 
         if (tFAmount.getText().length() > 0 && cBConvertFrom.getValue() != null && cBConvertTo.getValue() != null) {
             tFResult.setText(m.convert(tFAmount.getText(), cBConvertFrom.getValue(), cBConvertTo.getValue()));
