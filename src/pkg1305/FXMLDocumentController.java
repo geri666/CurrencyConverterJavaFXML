@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
  */
 public class FXMLDocumentController implements Initializable {
 
-    // declaration of gui-elements
+    // Declaration of gui-elements
     private Label label;
     @FXML
     private Button btnConvert;
@@ -46,7 +46,7 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // add item to comboboxes
+        // Add item to comboboxes
         cBConvertFrom.getItems().addAll(
                 Currency.USD,
                 Currency.CAD,
@@ -73,11 +73,11 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void convert(ActionEvent event) throws IOException {
-        // check if the form is filled out completely 
+        // Check if the form is filled out completely 
         if (tFAmount.getText().length() > 0 && cBConvertFrom.getValue() != null && cBConvertTo.getValue() != null) {
             tFResult.setText(m.convert(tFAmount.getText(), cBConvertFrom.getValue(), cBConvertTo.getValue()));
         } else {
-            // else return an error message
+            // Else return an error message
             m.formNotFull();
         }
 
@@ -85,7 +85,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void reset(ActionEvent event) {
-        // resets all components
+        // Resets all components
         tFAmount.setText(null);
         cBConvertFrom.setValue(null);
         cBConvertTo.setValue(null);
@@ -94,13 +94,13 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void exit(ActionEvent event) {
-        // exits application when clicked in menu bar
+        // Exits application when clicked in menu bar
         System.exit(0);
     }
 
     @FXML
     private void about(ActionEvent event) throws IOException {
-        // shows help-page when clicked in menu bar
+        // Shows help-page when clicked in menu bar
         m.showPage("Help");
     }
 

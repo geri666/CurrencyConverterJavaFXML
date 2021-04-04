@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class Model {
 
-    // method that shows an fxml-page
+    // Method that shows an fxml-page
     public void showPage(String pageNameString) throws IOException {
         FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("FXML" + pageNameString + ".fxml"));
         Parent root1 = (Parent) fXMLLoader.load();
@@ -24,13 +24,13 @@ public class Model {
         stage.show();
     }
 
-    // method that converts the users amount into differect currencies
+    // Method that converts the users amount into differect currencies
     public String convert(String amount, Currency firstCurrency, Currency secondCurrency) throws IOException {
         BigDecimal toConvert = new BigDecimal(0);
         String result;
 
         try {
-            // checking if entry is a number
+            // Checking if entry is a number
             toConvert = new BigDecimal(amount);
 
             if (firstCurrency == secondCurrency) {
@@ -38,7 +38,7 @@ public class Model {
             }
 
         } catch (NumberFormatException e) {
-            // return an error message if the entry is not a number
+            // Return an error message if the entry is not a number
             noNumber();
         }
 
@@ -48,7 +48,7 @@ public class Model {
     }
 
     public void noNumber() {
-        // pop-up-window that shows when anything but a number got entered
+        // Pop-up-window that shows when anything but a number got entered
         JOptionPane.showMessageDialog(null,
                 "Please enter a number.",
                 "Warning!",
@@ -56,7 +56,7 @@ public class Model {
     }
 
     public void formNotFull() {
-        // pop-up-window that shows when a not complete form gets submitted
+        // Pop-up-window that shows when a not complete form gets submitted
         JOptionPane.showMessageDialog(null,
                 "Please enter an amount and start your starting- and ending currency to start the conversion.",
                 "Warning!",
