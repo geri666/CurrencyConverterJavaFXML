@@ -1,13 +1,13 @@
-package ch.bbbaden.currencyconverter;
+package pkg1305;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
+import org.json.*;
 
 /**
  *
@@ -35,7 +35,10 @@ public class ExchangeRate {
 
     private BigDecimal findRate() throws MalformedURLException, IOException {
         // Create a neat value object to hold the URL
-        URL url = new URL("https://api.exchangeratesapi.io/latest?base=" + base + "&symbols=" + target);
+
+        String endpoint = "https://api.exchangeratesapi.io/v1/latest";
+        String accesskey = "access_key=c561ae7ea4feb3d1b0033de2d4a62c1e";
+        URL url = new URL(endpoint + "?" + accesskey + "&base=" + base + "&symbols=" + target);
 
         // Open a connection(?) on the URL(??) and cast the response(???)
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -46,12 +49,13 @@ public class ExchangeRate {
         // This line makes the request
         InputStream responseStream = connection.getInputStream();
 
-        Scanner s = new Scanner(responseStream).useDelimiter("\\A");
-        String result = s.hasNext() ? s.next() : "";
-        String returnThis = result.split(":", 0)[2].split("}", 0)[0];
-        System.out.println(returnThis);
-        return new BigDecimal(returnThis);
+        Scanner s = new Scanner(responseStream).useDelimiter("\\A"); // break up the response by lines
+        String jsonString = s.hasNext() ? s.next() : "";         
+        JSONObject obj = new JSONObject(jsonString);
+        JSONObject rates = obj.getJSONObject("rates");
+        BigDecimal r = rates.getBigDecimal(target);
+        System.out.println(r);
+        return r;
     }
 
 }
-

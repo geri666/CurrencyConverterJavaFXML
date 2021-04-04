@@ -1,4 +1,4 @@
-package ch.bbbaden.currencyconverter;
+package pkg1305;
 
 import java.io.IOException;
 import java.math.BigDecimal;
