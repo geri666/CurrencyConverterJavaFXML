@@ -1,12 +1,16 @@
 package pkg1305;
 
+import static com.sun.org.apache.xerces.internal.util.FeatureState.is;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
+import jdk.nashorn.internal.parser.JSONParser;
 import org.json.*;
 
 /**
@@ -48,10 +52,10 @@ public class ExchangeRate {
 
         // This line makes the request
         InputStream responseStream = connection.getInputStream();
-
-        Scanner s = new Scanner(responseStream).useDelimiter("\\A"); // break up the response by lines
-        String jsonString = s.hasNext() ? s.next() : "";         
-        JSONObject obj = new JSONObject(jsonString);
+        InputStreamReader isr = new InputStreamReader(responseStream);
+        BufferedReader bufferedReader = new BufferedReader(isr);
+        JSONTokener tokener = new JSONTokener(bufferedReader);
+        JSONObject obj = new JSONObject(tokener);
         JSONObject rates = obj.getJSONObject("rates");
         BigDecimal r = rates.getBigDecimal(target);
         System.out.println(r);
