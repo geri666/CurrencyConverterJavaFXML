@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg1305;
+package ch.bbbaden.currencyconverter;
 
 import java.net.URL;
 import java.util.ResourceBundle;
